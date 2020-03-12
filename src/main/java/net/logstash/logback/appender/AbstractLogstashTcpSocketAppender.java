@@ -582,6 +582,8 @@ public abstract class AbstractLogstashTcpSocketAppender<Event extends DeferredPr
 
         private void writeEvent(Socket socket, OutputStream outputStream, LogEvent<Event> logEvent, boolean endOfBatch) throws IOException {
 
+            addInfo("Attempting to send log event");
+
             long startWallTime = System.currentTimeMillis();
             long startNanoTime = System.nanoTime();
             lastSendStartNanoTime = startNanoTime;
